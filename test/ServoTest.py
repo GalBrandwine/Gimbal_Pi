@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from Raspi_PWM_Servo_Driver import PWM
+from driver.Raspi_PWM_Servo_Driver import PWM
 import time
 
 # ===========================================================================

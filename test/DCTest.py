@@ -9,25 +9,25 @@ mh = Raspi_MotorHAT(addr=0x6f)
 
 
 # recommended for auto-disabling motors on shutdown!
-def turnOffMotors():
+def turn_off_motors():
     mh.getMotor(1).run(Raspi_MotorHAT.RELEASE)
     mh.getMotor(2).run(Raspi_MotorHAT.RELEASE)
     mh.getMotor(3).run(Raspi_MotorHAT.RELEASE)
     mh.getMotor(4).run(Raspi_MotorHAT.RELEASE)
 
 
-atexit.register(turnOffMotors)
+atexit.register(turn_off_motors)
 
-################################# DC motor test!
+# DC motor test!
 myMotor = mh.getMotor(3)
 
 # set the speed to start, from 0 (off) to 255 (max speed)
 myMotor.setSpeed(150)
-myMotor.run(Raspi_MotorHAT.FORWARD);
+myMotor.run(Raspi_MotorHAT.FORWARD)
 # turn on motor
-myMotor.run(Raspi_MotorHAT.RELEASE);
+myMotor.run(Raspi_MotorHAT.RELEASE)
 
-while (True):
+while True:
     print("Forward! ")
     myMotor.run(Raspi_MotorHAT.FORWARD)
 
