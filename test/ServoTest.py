@@ -1,10 +1,6 @@
 #!/usr/bin/python
 
 import time
-
-import os
-print(os.path.dirname(os.path.abspath(__file__)))
-
 from driver.Raspi_PWM_Servo_Driver import PWM
 
 # ===========================================================================
