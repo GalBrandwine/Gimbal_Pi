@@ -66,7 +66,7 @@ class RasPiI2C(object):
             if self.debug:
                 print("I2C: Wrote 0x%02X to register 0x%02X" % (value, reg))
         except IOError:
-            return self.errMsg()
+            return self.err_msg()
 
     def write16(self, reg, value):
         "Writes a 16-bit value to the specified register/address pair"
@@ -76,7 +76,7 @@ class RasPiI2C(object):
                 print("I2C: Wrote 0x%02X to register pair 0x%02X,0x%02X" %
                       (value, reg, reg + 1))
         except IOError:
-            return self.errMsg()
+            return self.err_msg()
 
     def write_raw8(self, value):
         "Writes an 8-bit value on the bus"
@@ -85,7 +85,7 @@ class RasPiI2C(object):
             if self.debug:
                 print("I2C: Wrote 0x%02X" % value)
         except IOError:
-            return self.errMsg()
+            return self.err_msg()
 
     def write_list(self, reg, list):
         "Writes an array of bytes using I2C format"
@@ -95,7 +95,7 @@ class RasPiI2C(object):
                 print(list)
             self.bus.write_i2c_block_data(self.address, reg, list)
         except IOError:
-            return self.errMsg()
+            return self.err_msg()
 
     def read_list(self, reg, length):
         "Read a list of bytes from the I2C device"
@@ -107,7 +107,7 @@ class RasPiI2C(object):
                 print(results)
             return results
         except IOError:
-            return self.errMsg()
+            return self.err_msg()
 
     def read_u8(self, reg):
         "Read an unsigned byte from the I2C device"
@@ -118,7 +118,7 @@ class RasPiI2C(object):
                       (self.address, result & 0xFF, reg))
             return result
         except IOError:
-            return self.errMsg()
+            return self.err_msg()
 
     def read_s8(self, reg):
         "Reads a signed byte from the I2C device"
@@ -130,7 +130,7 @@ class RasPiI2C(object):
                       (self.address, result & 0xFF, reg))
             return result
         except IOError:
-            return self.errMsg()
+            return self.err_msg()
 
     def read_u16(self, reg, little_endian=True):
         "Reads an unsigned 16-bit value from the I2C device"
@@ -144,7 +144,7 @@ class RasPiI2C(object):
                 print("I2C: Device 0x%02X returned 0x%04X from reg 0x%02X" % (self.address, result & 0xFFFF, reg))
             return result
         except IOError:
-            return self.errMsg()
+            return self.err_msg()
 
     def readS16(self, reg, little_endian=True):
         "Reads a signed 16-bit value from the I2C device"
@@ -153,7 +153,7 @@ class RasPiI2C(object):
             if result > 32767: result -= 65536
             return result
         except IOError:
-            return self.errMsg()
+            return self.err_msg()
 
 
 if __name__ == '__main__':
