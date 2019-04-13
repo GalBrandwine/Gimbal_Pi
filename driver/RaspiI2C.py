@@ -1,8 +1,8 @@
 #!/usr/bin/python
 import re
 
-import smbus  # a module for Raspberry pi
-
+#import smbus  # a module for Raspberry pi
+import smbus2 as smbus # trying fixing smbus bug
 
 # ===========================================================================
 # Raspi_I2C Class
