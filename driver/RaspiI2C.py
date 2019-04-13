@@ -34,7 +34,7 @@ class RasPiI2C(object):
     @staticmethod
     def get_pi_i2c_busNumber():
         # Gets the I2C bus number /dev/i2c#
-        return 1 if RasPiI2C.getPiRevision() > 1 else 0
+        return 1 if RasPiI2C.get_pi_revision() > 1 else 0
 
     def __init__(self, address, busnum=-1, debug=False):
         self.address = address
