@@ -13,4 +13,6 @@ A gimbal module for rasbperry pi
 # Mainly concentrated on PWN servo driver.
 # Also, there will be a PID controller, and en example for using it.
 
+## Getting started:
+1. Need to raspi-config inorder to activate i2c support!
 
