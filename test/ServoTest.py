@@ -34,5 +34,5 @@ while True:
     # Change speed of continuous servo on channel O
     pwm.set_pwm(yaw, 0, servoMin)
     time.sleep(1)
-    pwm.set_pwm(yaw, 0, servoMax)
-    time.sleep(1)
+   # pwm.set_pwm(yaw, 0, servoMax)
+    #time.sleep(1)
