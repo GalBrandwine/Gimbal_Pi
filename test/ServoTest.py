@@ -40,5 +40,5 @@ while True:
     # time.sleep(1)
     # pwm.set_pwm(yaw, 0, servoMax)
     time.sleep(1)
-    angle = angle + 10
+    angle = angle + 1
     print(angle)
