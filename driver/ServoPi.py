@@ -1,6 +1,5 @@
-
+#!/usr/bin/python
 """
-#!/usr/bin/env python
 ================================================
 ABElectronics ServoPi 16-Channel PWM Servo Driver
 Requires smbus2 or python smbus to be installed
