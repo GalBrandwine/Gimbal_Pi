@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import time
+
 from driver.Raspi_PWM_Servo_Driver import PWM
 
 # ===========================================================================
@@ -34,9 +35,10 @@ yaw = 14
 while True:
     # Change speed of continuous servo on channel O
     duty = angle / 18 + 2
-    set_servo_pulse(yaw,duty)
+    set_servo_pulse(yaw, duty)
     # pwm.set_pwm(yaw, 0, servoMin)
     # time.sleep(1)
     # pwm.set_pwm(yaw, 0, servoMax)
     time.sleep(1)
     angle = angle + 10
+    print(angle)
