@@ -6,17 +6,17 @@ class Servo(object):
     Servo class for controlling RC servos with the Servo PWM Pi Zero
     """
     __pwm = None
-    __position = [0, 0, 0, 0]  # 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    __lowpos = [0, 0, 0, 0]  # , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    __highpos = [0, 0, 0, 0]  # , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    __position = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    __lowpos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    __highpos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     __useoffset = False
-    __offset = [0, 0, 0, 0]  # , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    __offset = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     __frequency = 50
 
     # local methods
 
     def __refresh_channels(self):
-        for i in range(0, 4):
+        for i in range(0, 16):
             if self.__position == 0:
                 self.__pwm.set_pwm(i + 1, 0, 0)
             else:
