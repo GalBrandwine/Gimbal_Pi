@@ -11,7 +11,7 @@ from driver.ServoPi import Servo
 
 # Initialise the PWM device using the default address
 # bmp = PWM(0x40, debug=True)
-pwm = PWM(0x6F)
+#pwm = PWM(0x6F)
 
 servoMin = 150  # Min pulse length out of 4096
 servoMax = 600  # Max pulse length out of 4096
