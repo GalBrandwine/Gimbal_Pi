@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import time
+
 from driver.Raspi_PWM_Servo_Driver import PWM
 
 # ===========================================================================
@@ -13,6 +14,8 @@ pwm = PWM(0x6F)
 
 servoMin = 150  # Min pulse length out of 4096
 servoMax = 600  # Max pulse length out of 4096
+
+yaw = 14
 
 
 def set_servo_pulse(channel, pulse):
@@ -29,7 +32,7 @@ def set_servo_pulse(channel, pulse):
 pwm.set_pwm_freq(60)  # Set frequency to 60 Hz
 while True:
     # Change speed of continuous servo on channel O
-    pwm.set_pwm(0, 0, servoMin)
+    pwm.set_pwm(yaw, 0, servoMin)
     time.sleep(1)
-    pwm.set_pwm(0, 0, servoMax)
+    pwm.set_pwm(yaw, 0, servoMax)
     time.sleep(1)
