@@ -8,7 +8,6 @@ This demo shows how to set the limits of movement on a servo
 and then move between those positions
 """
 
-
 import time
 
 try:
@@ -18,6 +17,7 @@ except ImportError:
     print("Importing from parent folder instead")
     try:
         import sys
+
         sys.path.append("..")
         from ServoPi import Servo
     except ImportError:
@@ -30,7 +30,7 @@ def main():
     Main program function
     """
     # create an instance of the servo class on I2C address 0x40
-    servo = Servo(0x6F)#0x40)
+    servo = Servo(0x6F)  # 0x40)
 
     # set the servo minimum and maximum limits in milliseconds
     # the limits for a servo are typically between 1ms and 2ms.
