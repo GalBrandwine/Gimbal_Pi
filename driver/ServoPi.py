@@ -6,11 +6,11 @@ class Servo(object):
     Servo class for controlling RC servos with the Servo PWM Pi Zero
     """
     __pwm = None
-    __position = [0, 0, 0, 0, ]  # 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    __lowpos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    __highpos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    __position = [0, 0, 0, 0]  # 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    __lowpos = [0, 0, 0, 0]  # , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    __highpos = [0, 0, 0, 0]  # , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     __useoffset = False
-    __offset = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    __offset = [0, 0, 0, 0]  # , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     __frequency = 50
 
     # local methods
