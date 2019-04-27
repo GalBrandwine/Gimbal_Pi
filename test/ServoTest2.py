@@ -25,6 +25,9 @@ except ImportError:
             "Failed to import library from parent folder")
 
 
+yaw = 14
+
+
 def main():
     """
     Main program function
@@ -44,11 +47,11 @@ def main():
     # move the servo across its full range in increments of 10
     while True:
         for i in range(0, 250, 10):
-            servo.move(1, i)
+            servo.move(yaw, i)
             time.sleep(0.05)
 
         for i in range(250, 0, -10):
-            servo.move(1, i)
+            servo.move(yaw, i)
 
 
 if __name__ == "__main__":
