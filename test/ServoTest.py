@@ -1,10 +1,10 @@
-#!/usr/bin/python
+
 
 import time
 
 #from driver.Raspi_PWM_Servo_Driver import PWM
 from driver.ServoPi import Servo
-
+#!/usr/bin/python
 # ===========================================================================
 # Example Code
 # ===========================================================================
