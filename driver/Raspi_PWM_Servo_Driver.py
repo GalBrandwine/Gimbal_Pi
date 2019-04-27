@@ -94,13 +94,3 @@ class PWM:
         self.i2c.write8(self.__ALL_LED_ON_H, on >> 8)
         self.i2c.write8(self.__ALL_LED_OFF_L, off & 0xFF)
         self.i2c.write8(self.__ALL_LED_OFF_H, off >> 8)
-
-    def SetAngle(self, channel, angle):
-        """Sets the desired servo to rotate in a certain degree. """
-        duty = angle / 18 + 2
-        self.set_pwm(channel, 0, duty)
-        # GPIO.output(03, True)
-        # pwm.ChangeDutyCycle(duty)
-        # sleep(1)
-        # GPIO.output(03, False)
-        # pwm.ChangeDutyCycle(0)
