@@ -52,7 +52,7 @@ def main():
 
         for i in range(250, 0, -10):
             servo.move(yaw, i)
-
+        print("moving")
 
 if __name__ == "__main__":
     main()
