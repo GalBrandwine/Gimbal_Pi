@@ -61,7 +61,7 @@ def main():
                 servo.move(yaw + 1, i)
             print("moving")
     except KeyboardInterrupt as err:
-        servo.output_disable()
+        #servo.output_disable()
         servo.sleep()
         print("output disabled")
 
