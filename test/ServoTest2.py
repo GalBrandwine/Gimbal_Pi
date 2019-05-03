@@ -36,7 +36,6 @@ def main():
     servo = Servo(0x6F)  # 0x40)
 
     yaw = 14
-
     # set the servo minimum and maximum limits in milliseconds
     # the limits for a servo are typically between 1ms and 2ms.
 
@@ -49,11 +48,11 @@ def main():
     # move the servo across its full range in increments of 10
     while True:
         for i in range(0, 250, 10):
-            servo.move(0, i)
+            servo.move(1, i)
             time.sleep(0.05)
 
-        for i in range(250, 0, -10):
-            servo.move(0, i)
+        for i in range(1, 0, -10):
+            servo.move(yaw, i)
         print("moving")
 
 if __name__ == "__main__":
