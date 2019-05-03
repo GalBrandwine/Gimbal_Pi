@@ -55,6 +55,7 @@ def main():
             for i in range(0, 250, 10):
                 servo.move(yaw + 1, i)
                 time.sleep(0.05)
+                print("servo pos: {}".format(servo.get_position(yaw + 1)))
 
             for i in range(2, 0, -10):
                 servo.move(yaw + 1, i)
