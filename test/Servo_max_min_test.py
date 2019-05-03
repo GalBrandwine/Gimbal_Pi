@@ -62,13 +62,13 @@ def main():
             servo.move(yaw + 1, 250)  # face forward (middle of rotation_range
             time.sleep(0.5)
 
-            for i in range(0, 250, 10):
-                servo.move(yaw + 1, i)
+            for i in range(0, 360, 10):
+                servo.move(yaw + 1, i,360)
                 time.sleep(0.5)
                 print("servo pos: {}".format(servo.get_position(yaw + 1)))
 
             for i in range(2, 0, -10):
-                servo.move(yaw + 1, i)
+                servo.move(yaw + 1, i,360)
             print("moving")
     except KeyboardInterrupt as err:
         servo.sleep()  # stop the timers of the PWM, so no ERRORS corrections on the servo...

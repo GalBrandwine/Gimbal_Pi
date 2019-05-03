@@ -61,7 +61,7 @@ class Servo(object):
                 self.__offset[i] = self.__pwm.get_pwm_on_time(i + 1)
                 self.__position[i] = self.__pwm.get_pwm_off_time(i + 1) - self.__offset[i]
 
-    def move(self, channel, position, steps=360):
+    def move(self, channel, position, steps=250):
         """
         set the position of the servo
         """
