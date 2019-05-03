@@ -11,6 +11,8 @@ mapping for my boars:
     Library_channel | HAT_pwm_out
                 1   |   0
                 2   |   1
+                15  |   14
+                16  |   15  (not in use)
 """
 
 import time
