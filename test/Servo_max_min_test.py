@@ -50,14 +50,18 @@ def main():
     servo.output_enable()
 
     # move the servo across its full range in increments of 10
-    while True:
-        for i in range(0, 250, 10):
-            servo.move(yaw + 1, i)
-            time.sleep(0.05)
+    try:
+        while True:
+            for i in range(0, 250, 10):
+                servo.move(yaw + 1, i)
+                time.sleep(0.05)
 
-        for i in range(2, 0, -10):
-            servo.move(yaw + 1, i)
-        print("moving")
+            for i in range(2, 0, -10):
+                servo.move(yaw + 1, i)
+            print("moving")
+    except KeyboardInterrupt as err:
+        servo.output_disable()
+        print("output disabled")
 
 
 if __name__ == "__main__":
