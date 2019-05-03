@@ -49,11 +49,11 @@ def main():
     # move the servo across its full range in increments of 10
     while True:
         for i in range(0, 250, 10):
-            servo.move(yaw, i)
+            servo.move(0, i)
             time.sleep(0.05)
 
         for i in range(250, 0, -10):
-            servo.move(yaw, i)
+            servo.move(0, i)
         print("moving")
 
 if __name__ == "__main__":
