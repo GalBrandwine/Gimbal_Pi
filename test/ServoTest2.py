@@ -6,6 +6,11 @@ run with: python demo_servomove.py
 ================================================
 This demo shows how to set the limits of movement on a servo
 and then move between those positions
+
+mapping for my boars:
+    channel | pwm out
+        1   |   0
+
 """
 
 import time
@@ -48,10 +53,10 @@ def main():
     # move the servo across its full range in increments of 10
     while True:
         for i in range(0, 250, 10):
-            servo.move(1, i)
+            servo.move(2, i)
             time.sleep(0.05)
 
-        for i in range(1, 0, -10):
+        for i in range(2, 0, -10):
             servo.move(yaw, i)
         print("moving")
 
