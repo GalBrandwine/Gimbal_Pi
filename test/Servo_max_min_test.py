@@ -62,7 +62,7 @@ def main():
             print("moving")
     except KeyboardInterrupt as err:
         #servo.output_disable()
-        servo.sleep()
+        servo.sleep() # stop the timers of the PWM, so no ERRORS corections on the servo...
         print("output disabled")
 
 
