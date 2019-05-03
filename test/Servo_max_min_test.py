@@ -53,6 +53,10 @@ def main():
     # move the servo across its full range in increments of 10
     try:
         while True:
+
+            servo.move(yaw + 1, 130) # face forward (middle of rotation_range
+            time.sleep(0.5)
+
             for i in range(0, 250, 10):
                 servo.move(yaw + 1, i)
                 time.sleep(0.5)
