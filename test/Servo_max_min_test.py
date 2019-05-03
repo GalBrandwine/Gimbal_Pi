@@ -43,11 +43,12 @@ def main():
 
     # set the servo minimum and maximum limits in milliseconds
     # the limits for a servo are typically between 1ms and 2ms.
-    servo.set_low_limit(2.5)
-    servo.set_high_limit(50)
+    servo.set_low_limit(1.0)
+    servo.set_high_limit(2.0)
 
     # Enable the outputs
     servo.output_enable()
+    servo.offset_enable()
 
     # move the servo across its full range in increments of 10
     try:
