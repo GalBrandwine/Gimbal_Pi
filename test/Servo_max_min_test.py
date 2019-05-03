@@ -43,8 +43,8 @@ def main():
 
     # set the servo minimum and maximum limits in milliseconds
     # the limits for a servo are typically between 1ms and 2ms.
-    servo.set_low_limit(1.0)
-    servo.set_high_limit(2.0)
+    servo.set_low_limit(2.5)
+    servo.set_high_limit(50)
 
     # Enable the outputs
     servo.output_enable()
@@ -61,8 +61,7 @@ def main():
                 servo.move(yaw + 1, i)
             print("moving")
     except KeyboardInterrupt as err:
-        #servo.output_disable()
-        servo.sleep() # stop the timers of the PWM, so no ERRORS corections on the servo...
+        servo.sleep()  # stop the timers of the PWM, so no ERRORS corrections on the servo...
         print("output disabled")
 
 
