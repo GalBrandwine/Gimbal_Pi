@@ -21,4 +21,6 @@ This project aims to optimize face tracking with a PID controller.
 
 ## Getting started:
 1. Need to raspi-config inorder to activate i2c support!
+2. I've added to the HAT library the ServoPi from [this repo](https://github.com/abelectronicsuk/ABElectronics_Python_Libraries/blob/master/ServoPi/demos/demo_servomove.py)
+
 

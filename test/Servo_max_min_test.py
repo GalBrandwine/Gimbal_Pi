@@ -40,9 +40,9 @@ def main():
     servo = Servo(0x6F)  # 0x40)
 
     yaw = 14
+
     # set the servo minimum and maximum limits in milliseconds
     # the limits for a servo are typically between 1ms and 2ms.
-
     servo.set_low_limit(1.0)
     servo.set_high_limit(2.0)
 
@@ -54,7 +54,6 @@ def main():
         for i in range(0, 250, 10):
             servo.move(yaw + 1, i)
             time.sleep(0.05)
-            print("servo pos: {}".format(servo.get_position(yaw+1)))
 
         for i in range(2, 0, -10):
             servo.move(yaw + 1, i)
