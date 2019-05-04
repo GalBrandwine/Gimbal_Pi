@@ -93,6 +93,20 @@ def main():
 
     # move the servo across its full range in increments of 10
     try:
+        angle = 0
+        duty_cycle = angle / 18. + 3
+        servo.move(yaw + 1, duty_cycle)  # face forward (middle of rotation_range
+        print(("for duty angle: {} duty_cicle: {}".format(angle,duty_cycle)))
+        print("servo pos: {}".format(servo.get_position(yaw + 1)))
+        time.sleep(1)
+
+        angle = 90
+        duty_cycle = angle / 18. + 3
+        servo.move(yaw + 1, duty_cycle)  # face forward (middle of rotation_range
+        print(("for duty angle: {} duty_cicle: {}".format(angle,duty_cycle)))
+        print("servo pos: {}".format(servo.get_position(yaw + 1)))
+        time.sleep(1)
+
         servo.move(yaw + 1, 120)  # face forward (middle of rotation_range
         print("servo pos: {}".format(servo.get_position(yaw + 1)))
 
