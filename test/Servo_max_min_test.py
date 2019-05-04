@@ -49,26 +49,25 @@ def main():
     # Enable the outputs
     servo.output_enable()
 
-
     # move the servo across its full range in increments of 10
     try:
         while True:
 
             servo.move(yaw + 1, 0)  # face forward (middle of rotation_range
             time.sleep(0.5)
-            servo.move(yaw + 1, 130) # face forward (middle of rotation_range
+            servo.move(yaw + 1, 130)  # face forward (middle of rotation_range
             time.sleep(0.5)
 
             servo.move(yaw + 1, 250)  # face forward (middle of rotation_range
             time.sleep(0.5)
 
-            for i in range(0, 250, 10):
-                servo.move(yaw + 1, i)
-                time.sleep(0.5)
-                print("servo pos: {}".format(servo.get_position(yaw + 1)))
-
-            for i in range(2, 0, -10):
-                servo.move(yaw + 1, i)
+            # for i in range(0, 250, 10):
+            #     servo.move(yaw + 1, i)
+            #     time.sleep(0.5)
+            #     print("servo pos: {}".format(servo.get_position(yaw + 1)))
+            #
+            # for i in range(2, 0, -10):
+            #     servo.move(yaw + 1, i)
             print("moving")
     except KeyboardInterrupt as err:
         servo.sleep()  # stop the timers of the PWM, so no ERRORS corrections on the servo...
