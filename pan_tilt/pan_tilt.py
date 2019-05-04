@@ -118,7 +118,7 @@ def main():
         # print("servo pos: {}".format(servo.get_position(pitch + 1)))
         angle = 0
         while True:
-            for i in range(0, 180, 45):
+            for i in range(0, 180, 10):
                 servo.move(yaw + 1, i, 180)
                 print("servo pos: {}".format(servo.get_position(yaw + 1)))
                 time.sleep(.5)
