@@ -62,6 +62,7 @@ class PantTilt:
         # Enable the outputs
         self.servo.output_enable() if flag is True else self.servo.output_disable()
 
+
 def main():
     """
     Main program function
@@ -96,14 +97,14 @@ def main():
         angle = 0
         duty_cycle = angle / 18. + 3
         servo.move(yaw + 1, duty_cycle)  # face forward (middle of rotation_range
-        print(("for duty angle: {} duty_cicle: {}".format(angle,duty_cycle)))
+        print(("for duty angle: {} duty_cicle: {}".format(angle, duty_cycle)))
         print("servo pos: {}".format(servo.get_position(yaw + 1)))
         time.sleep(1)
 
         angle = 90
         duty_cycle = angle / 18. + 3
         servo.move(yaw + 1, duty_cycle)  # face forward (middle of rotation_range
-        print(("for duty angle: {} duty_cicle: {}".format(angle,duty_cycle)))
+        print(("for duty angle: {} duty_cicle: {}".format(angle, duty_cycle)))
         print("servo pos: {}".format(servo.get_position(yaw + 1)))
         time.sleep(1)
 
@@ -123,7 +124,7 @@ def main():
             print(("for duty angle: {} duty_cicle: {}".format(angle, duty_cycle)))
             print("servo pos: {}".format(servo.get_position(yaw + 1)))
             time.sleep(1)
-            angle = (angle + 90)%180
+            angle = (angle + 10) % 180
             #
             # servo.move(pitch + 1, 0)  # face forward (middle of rotation_range
             # print("servo pos: {}".format(servo.get_position(pitch + 1)))
