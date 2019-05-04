@@ -78,16 +78,16 @@ def main():
     # the limits for a servo are typically between 1ms and 2ms.
 
     # Yaw can turn 180 deg
-    servo.set_low_limit(0.5, yaw)
-    servo.set_high_limit(2.4, yaw)
+    servo.set_low_limit(0.7, yaw+1)
+    servo.set_high_limit(2.4, yaw+1)
 
     # roll can turn 90 deg (-45 to +45)
-    servo.set_low_limit(1.0, roll)
-    servo.set_high_limit(2.0, roll)
+    servo.set_low_limit(1.0, roll+1)
+    servo.set_high_limit(2.0, roll+1)
 
     # Pith can turn 90 deg (-45 to +45)
-    servo.set_low_limit(1.0, pitch)
-    servo.set_high_limit(2.0, pitch)
+    servo.set_low_limit(1.0, pitch+1)
+    servo.set_high_limit(2.0, pitch+1)
 
     # Enable the outputs
     servo.output_enable()
