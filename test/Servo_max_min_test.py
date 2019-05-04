@@ -40,8 +40,8 @@ def main():
     servo = Servo(0x6F)  # 0x40)
 
     yaw = 14
-    pitch = 0
-    roll = 1
+    roll = 0
+    pitch = 1
 
     # set the servo minimum and maximum limits in milliseconds
     # the limits for a servo are typically between 1ms and 2ms.
@@ -50,8 +50,8 @@ def main():
     servo.set_high_limit(2.4, yaw)
 
     # Pith can turn 90 deg (-45 to +45)
-    servo.set_low_limit(1.0, pitch)
-    servo.set_high_limit(2.0, pitch)
+    servo.set_low_limit(1.0, roll)
+    servo.set_high_limit(2.0, roll)
     # Enable the outputs
     servo.output_enable()
 
@@ -60,23 +60,23 @@ def main():
         servo.move(yaw + 1, 120)  # face forward (middle of rotation_range
         print("servo pos: {}".format(servo.get_position(yaw + 1)))
 
-        servo.move(pitch + 1, 120)  # face forward (middle of pitch)
-        print("servo pos: {}".format(servo.get_position(yaw + 1)))
+        servo.move(roll + 1, 120)  # face forward (middle of roll)
+        print("servo pos: {}".format(servo.get_position(roll + 1)))
 
         servo.move(roll + 1, 120)  # face forward (middle of roll)
-        print("servo pos: {}".format(servo.get_position(yaw + 1)))
+        print("servo pos: {}".format(servo.get_position(pitch + 1)))
 
         while True:
-            servo.move(pitch + 1, 0)  # face forward (middle of rotation_range
-            print("servo pos: {}".format(servo.get_position(yaw + 1)))
+            servo.move(roll + 1, 0)  # face forward (middle of rotation_range
+            print("servo pos: {}".format(servo.get_position(pitch + 1)))
             time.sleep(1)
 
-            servo.move(pitch + 1, 120)  # face forward (middle of rotation_range)
-            print("servo pos: {}".format(servo.get_position(yaw + 1)))
+            servo.move(roll + 1, 120)  # face forward (middle of rotation_range)
+            print("servo pos: {}".format(servo.get_position(pitch + 1)))
             time.sleep(1)
 
-            servo.move(pitch + 1, 250)  # face forward (middle of rotation_range
-            print("servo pos: {}".format(servo.get_position(yaw + 1)))
+            servo.move(roll + 1, 250)  # face forward (middle of rotation_range
+            print("servo pos: {}".format(servo.get_position(pitch + 1)))
             time.sleep(1)
 
             # for i in range(0, 250, 10):
