@@ -32,6 +32,36 @@ except ImportError:
             "Failed to import library from parent folder")
 
 
+class PantTilt:
+    """A project-specific class for my pan tilt mechanizem (NOT AN OOP THING). """
+
+    def __init__(self, yaw, roll, pitch, address=0x6f, ):
+        # create an instance of the servo class on I2C address 0x40
+        self.servo = Servo(address)  # 0x40)
+
+        self.yaw = yaw = 14
+        self.roll = roll = 0
+        self.pitch = pitch = 1
+
+        # set the servo minimum and maximum limits in milliseconds
+        # the limits for a servo are typically between 1ms and 2ms.
+
+        # Yaw can turn 180 deg
+        self.servo.set_low_limit(0.7, yaw)
+        self.servo.set_high_limit(2.4, yaw)
+
+        # roll can turn 90 deg (-45 to +45)
+        self.servo.set_low_limit(1.0, roll)
+        self.servo.set_high_limit(2.0, roll)
+
+        # Pith can turn 90 deg (-45 to +45)
+        self.servo.set_low_limit(1.0, pitch)
+        self.servo.set_high_limit(2.0, pitch)
+
+    def servo_enable(self, flag):
+        # Enable the outputs
+        self.servo.output_enable() if flag is True else self.servo.output_disable()
+
 def main():
     """
     Main program function
