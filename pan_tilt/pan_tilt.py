@@ -118,8 +118,6 @@ def main():
         # print("servo pos: {}".format(servo.get_position(pitch + 1)))
         angle = 0
         while True:
-
-            angle = 0
             servo.move(yaw + 1, angle)  # face forward (middle of rotation_range
             print(("for duty angle: {} ".format(angle)))
             print("servo pos: {}".format(servo.get_position(yaw + 1)))
