@@ -118,11 +118,14 @@ def main():
         # print("servo pos: {}".format(servo.get_position(pitch + 1)))
         angle = 0
         while True:
-            servo.move(yaw + 1, angle)  # face forward (middle of rotation_range
-            print(("for duty angle: {} ".format(angle)))
-            print("servo pos: {}".format(servo.get_position(yaw + 1)))
-            time.sleep(1)
-            angle = (angle + 10) % 180
+
+            for i in range(0, 250, 10):
+                servo.move(yaw + 1, i)
+                time.sleep(0.5)
+                print("servo pos: {}".format(servo.get_position(yaw + 1)))
+
+                time.sleep(1)
+
             #
             # servo.move(pitch + 1, 0)  # face forward (middle of rotation_range
             # print("servo pos: {}".format(servo.get_position(pitch + 1)))
