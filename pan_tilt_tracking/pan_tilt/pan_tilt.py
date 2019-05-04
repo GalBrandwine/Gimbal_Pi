@@ -32,7 +32,7 @@ except ImportError:
             "Failed to import library from parent folder")
 
 
-class PantTilt:
+class PanTilt:
     """A project-specific class for my pan tilt mechanizem (NOT AN OOP THING). """
 
     def __init__(self, yaw, roll, pitch, address=0x6f, ):
