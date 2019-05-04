@@ -31,48 +31,89 @@ except ImportError:
         raise ImportError(
             "Failed to import library from parent folder")
 
+# class PanTilt:
+#     """A project-specific class for my pan tilt mechanizem (NOT AN OOP THING). """
+# 
+#     def __init__(self, yaw, roll, pitch, address=0x6f, ):
+#         # create an instance of the servo class on I2C address 0x40
+#         servo = Servo(address)  # 0x40)
+# 
+#         yaw = yaw = 14
+#         roll = roll = 0
+#         pitch = pitch = 1
+# 
+#         # set the servo minimum and maximum limits in milliseconds
+#         # the limits for a servo are typically between 1ms and 2ms.
+# 
+#         # Yaw can turn 180 deg
+#         servo.set_low_limit(0.7, yaw + 1)
+#         servo.set_high_limit(2.4, yaw + 1)
+# 
+#         # roll can turn 90 deg (-45 to +45)
+#         servo.set_low_limit(1.0, roll + 1)
+#         servo.set_high_limit(2.0, roll + 1)
+# 
+#         # Pith can turn 90 deg (-45 to +45)
+#         servo.set_low_limit(1.0, pitch + 1)
+#         servo.set_high_limit(2.0, pitch + 1)
+# 
+#     def servo_enable(self, number, flag):
+#         # Enable the outputs
+#         servo.output_enable() if flag is True else servo.output_disable()
+# 
+#     def pan(self, angle):
+#         if angle < 0:
+#             move(yaw + 1, 90 - angle, 180)
+#         else:
+#             move(yaw + 1, angle, 180)
+# 
+#     def tilt(self, angle):
+#         if angle < 0:
+#             move(pitch + 1, 90 - angle, 180)
+#         else:
+#             move(pitch + 1, angle, 180)
 
-class PanTilt:
-    """A project-specific class for my pan tilt mechanizem (NOT AN OOP THING). """
 
-    def __init__(self, yaw, roll, pitch, address=0x6f, ):
-        # create an instance of the servo class on I2C address 0x40
-        self.servo = Servo(address)  # 0x40)
+# create an instance of the servo class on I2C address 0x40
+servo = Servo(0x6F)  # 0x40)
 
-        self.yaw = yaw = 14
-        self.roll = roll = 0
-        self.pitch = pitch = 1
+yaw = yaw = 14
+roll = roll = 0
+pitch = pitch = 1
 
-        # set the servo minimum and maximum limits in milliseconds
-        # the limits for a servo are typically between 1ms and 2ms.
+# set the servo minimum and maximum limits in milliseconds
+# the limits for a servo are typically between 1ms and 2ms.
 
-        # Yaw can turn 180 deg
-        self.servo.set_low_limit(0.7, yaw + 1)
-        self.servo.set_high_limit(2.4, yaw + 1)
+# Yaw can turn 180 deg
+servo.set_low_limit(0.7, yaw + 1)
+servo.set_high_limit(2.4, yaw + 1)
 
-        # roll can turn 90 deg (-45 to +45)
-        self.servo.set_low_limit(1.0, roll + 1)
-        self.servo.set_high_limit(2.0, roll + 1)
+# roll can turn 90 deg (-45 to +45)
+servo.set_low_limit(1.0, roll + 1)
+servo.set_high_limit(2.0, roll + 1)
 
-        # Pith can turn 90 deg (-45 to +45)
-        self.servo.set_low_limit(1.0, pitch + 1)
-        self.servo.set_high_limit(2.0, pitch + 1)
+# Pith can turn 90 deg (-45 to +45)
+servo.set_low_limit(1.0, pitch + 1)
+servo.set_high_limit(2.0, pitch + 1)
 
-    def servo_enable(self, number, flag):
-        # Enable the outputs
-        self.servo.output_enable() if flag is True else self.servo.output_disable()
 
-    def pan(self, angle):
-        if angle < 0:
-            self.move(self.yaw + 1, 90 - angle, 180)
-        else:
-            self.move(self.yaw + 1, angle, 180)
+def servo_enable(number, flag):
+    # Enable the outputs
+    servo.output_enable() if flag is True else servo.output_disable()
 
-    def tilt(self, angle):
-        if angle < 0:
-            self.move(self.pitch + 1, 90 - angle, 180)
-        else:
-            self.move(self.pitch + 1, angle, 180)
+
+def pan(angle):
+    if angle < 0:
+        servo.move(yaw + 1, 90 - angle, 180)
+    else:
+        servo.move(yaw + 1, angle, 180)
+
+
+def tilt(angle):
+    if angle < 0:
+        servo.move(pitch + 1, 90 - angle, 180)
+    else:
+        servo.move(pitch + 1, angle, 180)
 
 
 def main():
