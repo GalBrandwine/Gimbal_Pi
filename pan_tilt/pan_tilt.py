@@ -123,10 +123,10 @@ def main():
                 print("servo pos: {}".format(servo.get_position(yaw + 1)))
                 time.sleep(.5)
 
-            for i in range(0, 250, 10):
-                servo.move(yaw + 1, i)
-                print("servo pos: {}".format(servo.get_position(yaw + 1)))
-                time.sleep(.5)
+            # for i in range(0, 250, 10):
+            #     servo.move(yaw + 1, i)
+            #     print("servo pos: {}".format(servo.get_position(yaw + 1)))
+            #     time.sleep(.5)
 
             #
             # servo.move(pitch + 1, 0)  # face forward (middle of rotation_range
