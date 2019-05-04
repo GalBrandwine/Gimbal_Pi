@@ -78,7 +78,7 @@ def main():
     # the limits for a servo are typically between 1ms and 2ms.
 
     # Yaw can turn 180 deg
-    servo.set_low_limit(0.7, yaw)
+    servo.set_low_limit(0.5, yaw)
     servo.set_high_limit(2.4, yaw)
 
     # roll can turn 90 deg (-45 to +45)
@@ -121,7 +121,7 @@ def main():
             servo.move(yaw + 1, 0)
             time.sleep(1)
 
-            for i in range(0, 250, 1):
+            for i in range(0, 250, 10):
                 servo.move(yaw + 1, i)
                 print("servo pos: {}".format(servo.get_position(yaw + 1)))
                 time.sleep(.5)
