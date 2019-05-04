@@ -15,7 +15,7 @@ from imutils.video import VideoStream
 
 from pid_controller.objcenter import ObjCenter
 from pid_controller.pid import PID
-from pan_tilt.pantilt import PanTilt
+from pan_tilt.pan_tilt import PanTilt
 # define the range for the motors
 servoRange = (-90, 90)
 
