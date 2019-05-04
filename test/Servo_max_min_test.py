@@ -55,7 +55,7 @@ def main():
 
             servo.move(yaw + 1, 0)  # face forward (middle of rotation_range
             time.sleep(1)
-            servo.move(yaw + 1, 125)  # face forward (middle of rotation_range
+            servo.move(yaw + 1, 100)  # face forward (middle of rotation_range
             time.sleep(1)
 
             servo.move(yaw + 1, 250)  # face forward (middle of rotation_range
