@@ -58,9 +58,21 @@ class PantTilt:
         self.servo.set_low_limit(1.0, pitch + 1)
         self.servo.set_high_limit(2.0, pitch + 1)
 
-    def servo_enable(self, flag):
+    def servo_enable(self, number, flag):
         # Enable the outputs
         self.servo.output_enable() if flag is True else self.servo.output_disable()
+
+    def pan(self, angle):
+        if angle < 0:
+            self.move(self.yaw + 1, 90 - angle, 180)
+        else:
+            self.move(self.yaw + 1, angle, 180)
+
+    def tilt(self, angle):
+        if angle < 0:
+            self.move(self.pitch + 1, 90 - angle, 180)
+        else:
+            self.move(self.pitch + 1, angle, 180)
 
 
 def main():
@@ -155,4 +167,5 @@ def main():
 
 
 if __name__ == "__main__":
+    """For testing. """
     main()

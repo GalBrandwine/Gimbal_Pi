@@ -27,8 +27,8 @@ def signal_handler(sig, frame):
     print("[INFO] You pressed `ctrl + c`! Exiting...")
 
     # disable the servos
-    pth.servo_enable(1, False)
-    pth.servo_enable(2, False)
+    PanTilt.servo_enable(1, False)
+    PanTilt.servo_enable(2, False)
 
     # exit
     sys.exit()
@@ -107,11 +107,11 @@ def go(pan, tlt):
 
         # if the pan angle is within the range, pan
         if in_range(panAngle, servoRange[0], servoRange[1]):
-            pth.pan(panAngle)
+            PanTilt.pan(panAngle)
 
         # if the tilt angle is within the range, tilt
         if in_range(tltAngle, servoRange[0], servoRange[1]):
-            pth.tilt(tltAngle)
+            PanTilt.tilt(tltAngle)
 
 
 # check to see if this is the main body of execution
@@ -125,8 +125,8 @@ if __name__ == "__main__":
     # start a manager for managing process-safe variables
     with Manager() as manager:
         # enable the servos
-        pth.servo_enable(1, True)
-        pth.servo_enable(2, True)
+        PanTilt.servo_enable(1, True)
+        PanTilt.servo_enable(2, True)
 
         # set integer values for the object center (x, y)-coordinates
         centerX = manager.Value("i", 0)
@@ -177,5 +177,5 @@ if __name__ == "__main__":
         processSetServos.join()
 
         # disable the servos
-        pth.servo_enable(1, False)
-        pth.servo_enable(2, False)
+        PanTilt.servo_enable(1, False)
+        PanTilt.servo_enable(2, False)
