@@ -63,19 +63,19 @@ def main():
         servo.move(roll + 1, 120)  # face forward (middle of roll)
         print("servo pos: {}".format(servo.get_position(roll + 1)))
 
-        servo.move(roll + 1, 120)  # face forward (middle of roll)
+        servo.move(pitch + 1, 120)  # face forward (middle of roll)
         print("servo pos: {}".format(servo.get_position(pitch + 1)))
 
         while True:
-            servo.move(roll + 1, 0)  # face forward (middle of rotation_range
+            servo.move(pitch + 1, 0)  # face forward (middle of rotation_range
             print("servo pos: {}".format(servo.get_position(pitch + 1)))
             time.sleep(1)
 
-            servo.move(roll + 1, 120)  # face forward (middle of rotation_range)
+            servo.move(pitch + 1, 120)  # face forward (middle of rotation_range)
             print("servo pos: {}".format(servo.get_position(pitch + 1)))
             time.sleep(1)
 
-            servo.move(roll + 1, 250)  # face forward (middle of rotation_range
+            servo.move(pitch + 1, 250)  # face forward (middle of rotation_range
             print("servo pos: {}".format(servo.get_position(pitch + 1)))
             time.sleep(1)
 
