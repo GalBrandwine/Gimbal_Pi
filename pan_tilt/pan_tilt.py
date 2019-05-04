@@ -107,36 +107,44 @@ def main():
         print("servo pos: {}".format(servo.get_position(yaw + 1)))
         time.sleep(1)
 
-        servo.move(yaw + 1, 120)  # face forward (middle of rotation_range
-        print("servo pos: {}".format(servo.get_position(yaw + 1)))
-
-        servo.move(roll + 1, 120)  # face forward (middle of roll)
-        print("servo pos: {}".format(servo.get_position(roll + 1)))
-
-        servo.move(pitch + 1, 120)  # face forward (middle of roll)
-        print("servo pos: {}".format(servo.get_position(pitch + 1)))
-
-        # while True:
-        #     servo.move(pitch + 1, 0)  # face forward (middle of rotation_range
-        #     print("servo pos: {}".format(servo.get_position(pitch + 1)))
-        #     time.sleep(1)
+        # servo.move(yaw + 1, 120)  # face forward (middle of rotation_range
+        # print("servo pos: {}".format(servo.get_position(yaw + 1)))
         #
-        #     servo.move(pitch + 1, 120)  # face forward (middle of rotation_range)
-        #     print("servo pos: {}".format(servo.get_position(pitch + 1)))
-        #     time.sleep(1)
+        # servo.move(roll + 1, 120)  # face forward (middle of roll)
+        # print("servo pos: {}".format(servo.get_position(roll + 1)))
         #
-        #     servo.move(pitch + 1, 250)  # face forward (middle of rotation_range
-        #     print("servo pos: {}".format(servo.get_position(pitch + 1)))
-        #     time.sleep(1)
-        #
-        #     # for i in range(0, 250, 10):
-        #     #     servo.move(yaw + 1, i)
-        #     #     time.sleep(0.5)
-        #     #     print("servo pos: {}".format(servo.get_position(yaw + 1)))
-        #     #
-        #     # for i in range(2, 0, -10):
-        #     #     servo.move(yaw + 1, i)
-        #     print("moving")
+        # servo.move(pitch + 1, 120)  # face forward (middle of roll)
+        # print("servo pos: {}".format(servo.get_position(pitch + 1)))
+
+        while True:
+            angle = 0
+            duty_cycle = angle / 18. + 3
+            servo.move(yaw + 1, duty_cycle)  # face forward (middle of rotation_range
+            print(("for duty angle: {} duty_cicle: {}".format(angle, duty_cycle)))
+            print("servo pos: {}".format(servo.get_position(yaw + 1)))
+            time.sleep(1)
+            angle = (angle + 90)%180
+            #
+            # servo.move(pitch + 1, 0)  # face forward (middle of rotation_range
+            # print("servo pos: {}".format(servo.get_position(pitch + 1)))
+            # time.sleep(1)
+            #
+            # servo.move(pitch + 1, 120)  # face forward (middle of rotation_range)
+            # print("servo pos: {}".format(servo.get_position(pitch + 1)))
+            # time.sleep(1)
+            #
+            # servo.move(pitch + 1, 250)  # face forward (middle of rotation_range
+            # print("servo pos: {}".format(servo.get_position(pitch + 1)))
+            # time.sleep(1)
+
+            # for i in range(0, 250, 10):
+            #     servo.move(yaw + 1, i)
+            #     time.sleep(0.5)
+            #     print("servo pos: {}".format(servo.get_position(yaw + 1)))
+            #
+            # for i in range(2, 0, -10):
+            #     servo.move(yaw + 1, i)
+            print("moving")
     except KeyboardInterrupt as err:
         servo.sleep()  # stop the timers of the PWM, so no ERRORS corrections on the servo...
         print("\noutput disabled\n")
