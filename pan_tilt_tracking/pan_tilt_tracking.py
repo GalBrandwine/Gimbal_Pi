@@ -120,7 +120,7 @@ if __name__ == "__main__":
     ap.add_argument("-c", "--cascade", type=str, required=True,
                     help="path to input Haar cascade for face detection")
     args = vars(ap.parse_args())
-
+    print("srarted")
     # start a manager for managing process-safe variables
     with Manager() as manager:
         # enable the servos
