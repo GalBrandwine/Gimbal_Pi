@@ -53,7 +53,7 @@ def main():
     try:
         while True:
 
-            servo.move(yaw + 1, 0,10)  # face forward (middle of rotation_range
+            servo.move(yaw + 1, 0,1000)  # face forward (middle of rotation_range
             print("servo pos: {}".format(servo.get_position(yaw + 1)))
             time.sleep(1)
             servo.move(yaw + 1, 120)  # face forward (middle of rotation_range
