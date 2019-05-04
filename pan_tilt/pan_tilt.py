@@ -47,16 +47,16 @@ class PantTilt:
         # the limits for a servo are typically between 1ms and 2ms.
 
         # Yaw can turn 180 deg
-        self.servo.set_low_limit(0.7, yaw+1)
-        self.servo.set_high_limit(2.4, yaw+1)
+        self.servo.set_low_limit(0.7, yaw + 1)
+        self.servo.set_high_limit(2.4, yaw + 1)
 
         # roll can turn 90 deg (-45 to +45)
-        self.servo.set_low_limit(1.0, roll+1)
-        self.servo.set_high_limit(2.0, roll+1)
+        self.servo.set_low_limit(1.0, roll + 1)
+        self.servo.set_high_limit(2.0, roll + 1)
 
         # Pith can turn 90 deg (-45 to +45)
-        self.servo.set_low_limit(1.0, pitch+1)
-        self.servo.set_high_limit(2.0, pitch+1)
+        self.servo.set_low_limit(1.0, pitch + 1)
+        self.servo.set_high_limit(2.0, pitch + 1)
 
     def servo_enable(self, flag):
         # Enable the outputs
@@ -78,16 +78,16 @@ def main():
     # the limits for a servo are typically between 1ms and 2ms.
 
     # Yaw can turn 180 deg
-    servo.set_low_limit(0.7, yaw+1)
-    servo.set_high_limit(2.4, yaw+1)
+    servo.set_low_limit(0.7, yaw + 1)
+    servo.set_high_limit(2.4, yaw + 1)
 
     # roll can turn 90 deg (-45 to +45)
-    servo.set_low_limit(1.0, roll+1)
-    servo.set_high_limit(2.0, roll+1)
+    servo.set_low_limit(1.0, roll + 1)
+    servo.set_high_limit(2.0, roll + 1)
 
     # Pith can turn 90 deg (-45 to +45)
-    servo.set_low_limit(1.0, pitch+1)
-    servo.set_high_limit(2.0, pitch+1)
+    servo.set_low_limit(1.0, pitch + 1)
+    servo.set_high_limit(2.0, pitch + 1)
 
     # Enable the outputs
     servo.output_enable()
@@ -119,6 +119,10 @@ def main():
         angle = 0
         while True:
             servo.move(yaw + 1, 0)
+            time.sleep(1)
+
+            servo.move(yaw + 1, 13,180)
+            print("servo pos: {}".format(servo.get_position(yaw + 1)))
             time.sleep(1)
 
             for i in range(0, 250, 10):
