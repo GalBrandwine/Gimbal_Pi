@@ -40,6 +40,8 @@ def main():
     servo = Servo(0x6F)  # 0x40)
 
     yaw = 14
+    pitch = 0
+    roll = 1
 
     # set the servo minimum and maximum limits in milliseconds
     # the limits for a servo are typically between 1ms and 2ms.
@@ -52,10 +54,17 @@ def main():
     # move the servo across its full range in increments of 10
     try:
         while True:
-
             servo.move(yaw + 1, 0)  # face forward (middle of rotation_range
             print("servo pos: {}".format(servo.get_position(yaw + 1)))
+
+            servo.move(pitch + 1, 0)  # face forward (middle of rotation_range
+            print("servo pos: {}".format(servo.get_position(yaw + 1)))
+
+            servo.move(roll + 1, 0)  # face forward (middle of rotation_range
+            print("servo pos: {}".format(servo.get_position(yaw + 1)))
+
             time.sleep(1)
+
             servo.move(yaw + 1, 120)  # face forward (middle of rotation_range)
             print("servo pos: {}".format(servo.get_position(yaw + 1)))
             time.sleep(1)
