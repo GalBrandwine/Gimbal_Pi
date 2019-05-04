@@ -12,10 +12,10 @@ from multiprocessing import Process
 import cv2
 from imutils.video import VideoStream
 
-from pan_tilt_tracking.pan_tilt import PanTilt
+
 from pan_tilt_tracking.pid_controller.objcenter import ObjCenter
 from pan_tilt_tracking.pid_controller.pid import PID
-
+from pan_tilt_tracking.pan_tilt import PanTilt
 # define the range for the motors
 servoRange = (-90, 90)
 
