@@ -15,7 +15,7 @@ from imutils.video import VideoStream
 
 from pid_controller.objcenter import ObjCenter
 from pid_controller.pid import PID
-from pan_tilt.pan_tilt import PanTilt
+from pan_tilt.pan_tilt import PanTilt as pntilt
 # define the range for the motors
 servoRange = (-90, 90)
 
@@ -26,8 +26,8 @@ def signal_handler(sig, frame):
     print("[INFO] You pressed `ctrl + c`! Exiting...")
 
     # disable the servos
-    PanTilt.servo_enable(1, False)
-    PanTilt.servo_enable(2, False)
+    pntilt.servo_enable(1, False)
+    pntilt.servo_enable(2, False)
 
     # exit
     sys.exit()
@@ -124,8 +124,8 @@ if __name__ == "__main__":
     # start a manager for managing process-safe variables
     with Manager() as manager:
         # enable the servos
-        PanTilt.servo_enable(1, True)
-        PanTilt.servo_enable(2, True)
+        pntilt.servo_enable(1, True)
+        pntilt.servo_enable(2, True)
 
         # set integer values for the object center (x, y)-coordinates
         centerX = manager.Value("i", 0)
@@ -176,5 +176,5 @@ if __name__ == "__main__":
         processSetServos.join()
 
         # disable the servos
-        PanTilt.servo_enable(1, False)
-        PanTilt.servo_enable(2, False)
+        pntilt.servo_enable(1, False)
+        pntilt.servo_enable(2, False)
