@@ -54,12 +54,12 @@ def main():
         while True:
 
             servo.move(yaw + 1, 0)  # face forward (middle of rotation_range
-            time.sleep(0.5)
+            time.sleep(1)
             servo.move(yaw + 1, 130)  # face forward (middle of rotation_range
-            time.sleep(0.5)
+            time.sleep(1)
 
             servo.move(yaw + 1, 250)  # face forward (middle of rotation_range
-            time.sleep(0.5)
+            time.sleep(1)
 
             # for i in range(0, 250, 10):
             #     servo.move(yaw + 1, i)
