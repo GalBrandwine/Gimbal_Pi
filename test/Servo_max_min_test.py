@@ -53,16 +53,18 @@ def main():
 
     # move the servo across its full range in increments of 10
     try:
+        servo.move(yaw + 1, 120)  # face forward (middle of rotation_range
+        print("servo pos: {}".format(servo.get_position(yaw + 1)))
+
+        servo.move(pitch + 1, 120)  # face forward (middle of pitch)
+        print("servo pos: {}".format(servo.get_position(yaw + 1)))
+
+        servo.move(roll + 1, 120)  # face forward (middle of roll)
+        print("servo pos: {}".format(servo.get_position(yaw + 1)))
+
         while True:
-            servo.move(yaw + 1, 120)  # face forward (middle of rotation_range
+            servo.move(yaw + 1, 0)  # face forward (middle of rotation_range
             print("servo pos: {}".format(servo.get_position(yaw + 1)))
-
-            servo.move(pitch + 1, 120)  # face forward (middle of pitch)
-            print("servo pos: {}".format(servo.get_position(yaw + 1)))
-
-            servo.move(roll + 1, 120)  # face forward (middle of roll)
-            print("servo pos: {}".format(servo.get_position(yaw + 1)))
-
             time.sleep(1)
 
             servo.move(yaw + 1, 120)  # face forward (middle of rotation_range)
