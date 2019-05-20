@@ -45,14 +45,23 @@ def obj_center(args, objX, objY, centerX, centerY):
     #obj = ObjCenter(args["cascade"])
     obj = ObjCenter("/home/pi/Gimbal_Pi/pan_tilt_tracking/haar.xml")
     
+    img = vs.read()
+    scale_percent = 30 # percent of original size
+    width = int(img.shape[1] * scale_percent / 100)
+    height = int(img.shape[0] * scale_percent / 100)
+    dim = (width, height)
+    
     # loop indefinitely
     while True:
         # grab the frame from the threaded video stream and flip it
         # vertically (since our camera was upside down)
         frame = vs.read()
-        frame = cv2.flip(frame, 0)
+       # frame = cv2.flip(frame, 0)
+       
+       # Resize image
+        frame = cv2.resize(frame, dim, interpolation = cv2.INTER_AREA)
         frame = cv2.flip(frame, 1)
-
+    
         # calculate the center of the frame as this is where we will
         # try to keep the object
         (H, W) = frame.shape[:2]
@@ -68,7 +77,8 @@ def obj_center(args, objX, objY, centerX, centerY):
             (x, y, w, h) = rect
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0),
                           2)
-
+        
+        
         # display the frame to the screen
         cv2.imshow("Pan-Tilt Face Tracking", frame)
         cv2.waitKey(1)
@@ -86,7 +96,8 @@ def pid_process(output, p, i, d, objCoord, centerCoord):
     while True:
         # calculate the error
         error = centerCoord.value - objCoord.value
-
+        
+        
         # update the value
         output.value = p.update(error)
 
@@ -100,11 +111,15 @@ def go(pan, tlt):
     # signal trap to handle keyboard interrupt
     signal.signal(signal.SIGINT, signal_handler)
 
+    PanTilt.pan(90)
+    PanTilt.tilt(90)
+    time.sleep(1)
+    
     # loop indefinitely
     while True:
         # the pan and tilt angles are reversed
-        panAngle = -1 * pan.value
-        tltAngle = -1 * tlt.value
+        panAngle = 1 * pan.value
+        tltAngle = 1 * tlt.value
 
         # if the pan angle is within the range, pan
         if in_range(panAngle, servoRange[0], servoRange[1]):
