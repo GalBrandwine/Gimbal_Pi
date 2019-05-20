@@ -50,6 +50,7 @@ def obj_center(args, objX, objY, centerX, centerY):
         # vertically (since our camera was upside down)
         frame = vs.read()
         frame = cv2.flip(frame, 0)
+        frame = cv2.flip(frame, 1)
 
         # calculate the center of the frame as this is where we will
         # try to keep the object
