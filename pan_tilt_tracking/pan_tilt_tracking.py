@@ -42,8 +42,9 @@ def obj_center(args, objX, objY, centerX, centerY):
     time.sleep(2.0)
 
     # initialize the object center finder
-    obj = ObjCenter(args["cascade"])
-
+    #obj = ObjCenter(args["cascade"])
+    obj = ObjCenter("/home/pi/Gimbal_Pi/pan_tilt_tracking/haar.xml")
+    
     # loop indefinitely
     while True:
         # grab the frame from the threaded video stream and flip it
@@ -118,7 +119,7 @@ def go(pan, tlt):
 if __name__ == "__main__":
     # construct the argument parser and parse the arguments
     ap = argparse.ArgumentParser()
-    ap.add_argument("-c", "--cascade", type=str, required=True,
+    ap.add_argument("-c", "--cascade", type=str, required=False,
                     help="path to input Haar cascade for face detection")
     args = vars(ap.parse_args())
     print("srarted")
