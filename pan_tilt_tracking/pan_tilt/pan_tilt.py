@@ -104,15 +104,14 @@ def servo_enable(number, flag):
     else:
         servo.sleep()  # stop the timers of the PWM, so no ERRORS corrections on the servo...
         servo.output_disable()
-        
 
 
 def pan(angle):
     print("panning: {}".format(angle))
     if angle < 0:
-        pos = servo.get_position(yaw + 1,180)
+        pos = servo.get_position(yaw + 1, 180)
         if pos is not 0:
-     #       print("yaw: {}, in pos: {}".format(yaw,pos))
+            #       print("yaw: {}, in pos: {}".format(yaw,pos))
             servo.move(yaw + 1, pos + angle, 180)
     else:
         servo.move(yaw + 1, angle, 180)
@@ -121,10 +120,10 @@ def pan(angle):
 def tilt(angle):
     print("tilting: {}".format(angle))
     if angle < 0:
-        
-        pos = servo.get_position(pitch + 1,180)
+
+        pos = servo.get_position(pitch + 1, 180)
         if pos is not 0:
-     #       print("pitch: {}, in pos: {}".format(yaw,pos))
+            #       print("pitch: {}, in pos: {}".format(yaw,pos))
             servo.move(pitch + 1, pos + angle, 180)
     else:
         servo.move(pitch + 1, angle, 180)
@@ -187,23 +186,22 @@ def main():
         while True:
             for i in range(90, 180, 10):
                 servo.move(yaw + 1, i, 180)
-                print("servo pos: {}".format(servo.get_position(yaw + 1,180)))
+                print("servo pos: {}".format(servo.get_position(yaw + 1, 180)))
                 time.sleep(.5)
-                
+
             for i in range(180, 90, -10):
                 servo.move(yaw + 1, i, 180)
-                print("servo pos: {}".format(servo.get_position(yaw + 1,180)))
+                print("servo pos: {}".format(servo.get_position(yaw + 1, 180)))
                 time.sleep(.5)
-            
-                    
+
             for i in range(90, 0, -10):
                 servo.move(yaw + 1, i, 180)
-                print("servo pos: {}".format(servo.get_position(yaw + 1,180)))
+                print("servo pos: {}".format(servo.get_position(yaw + 1, 180)))
                 time.sleep(.5)
-            
+
             for i in range(0, 90, 10):
                 servo.move(yaw + 1, i, 180)
-                print("servo pos: {}".format(servo.get_position(yaw + 1,180)))
+                print("servo pos: {}".format(servo.get_position(yaw + 1, 180)))
                 time.sleep(.5)
             # for i in range(0, 250, 10):
             #     servo.move(yaw + 1, i)
