@@ -112,9 +112,9 @@ def pan(angle):
         pos = servo.get_position(yaw + 1, 180)
         if pos is not 0:
             #       print("yaw: {}, in pos: {}".format(yaw,pos))
-            servo.move(yaw + 1, pos + angle, 180)
+            servo.move(yaw + 1, 90 + pos + angle, 180)
     else:
-        servo.move(yaw + 1, angle, 180)
+        servo.move(yaw + 1, 90+ angle, 180)
 
 
 def tilt(angle):
@@ -124,9 +124,9 @@ def tilt(angle):
         pos = servo.get_position(pitch + 1, 180)
         if pos is not 0:
             #       print("pitch: {}, in pos: {}".format(yaw,pos))
-            servo.move(pitch + 1, pos + angle, 180)
+            servo.move(pitch + 1, 90 + pos + angle, 180)
     else:
-        servo.move(pitch + 1, angle, 180)
+        servo.move(pitch + 1, 90 + angle, 180)
 
 
 def main():

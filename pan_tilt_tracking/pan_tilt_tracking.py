@@ -11,9 +11,9 @@ from multiprocessing import Process
 
 import cv2
 from imutils.video import VideoStream
-from pan_tilt_tracking.pan_tilt import pan_tilt as PanTilt
-from pan_tilt_tracking.pid_controller.objcenter import ObjCenter
-from pan_tilt_tracking.pid_controller.pid import PID
+from pan_tilt import pan_tilt as PanTilt
+from pid_controller.objcenter import ObjCenter
+from pid_controller.pid import PID
 
 # define the range for the motors
 servoRange = (-90, 90)
@@ -109,9 +109,6 @@ def go(pan, tlt):
     # signal trap to handle keyboard interrupt
     signal.signal(signal.SIGINT, signal_handler)
 
-    PanTilt.pan(90)
-    PanTilt.tilt(90)
-    time.sleep(1)
 
     # loop indefinitely
     while True:
