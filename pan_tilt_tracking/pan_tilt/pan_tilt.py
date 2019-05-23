@@ -101,32 +101,28 @@ def servo_enable(number, flag):
     # Enable / Disable the outputs
     if flag is True:
         servo.output_enable()
+        servo.move(yaw + 1, 90, 180)
+        servo.move(pitch + 1, 90, 180)
+        time.sleep(1)
     else:
         servo.sleep()  # stop the timers of the PWM, so no ERRORS corrections on the servo...
         servo.output_disable()
 
 
+#def pan(angle):
+    #print("panning: {}".format(angle))
+    #if angle < 0:
+        #pos = servo.get_position(yaw + 1, 180)
+        #if pos is not 0:
+            #print("yaw: {}, in pos: {}".format(yaw,pos))
+            #servo.move(yaw + 1, 90 + pos + angle, 180)
+    #else:
+        #servo.move(yaw + 1, 90+ angle, 180)
 def pan(angle):
-    print("panning: {}".format(angle))
-    if angle < 0:
-        pos = servo.get_position(yaw + 1, 180)
-        if pos is not 0:
-            #       print("yaw: {}, in pos: {}".format(yaw,pos))
-            servo.move(yaw + 1, 90 + pos + angle, 180)
-    else:
-        servo.move(yaw + 1, 90+ angle, 180)
-
+    servo.move(yaw + 1, 90+angle, 180)
 
 def tilt(angle):
-    print("tilting: {}".format(angle))
-    if angle < 0:
-
-        pos = servo.get_position(pitch + 1, 180)
-        if pos is not 0:
-            #       print("pitch: {}, in pos: {}".format(yaw,pos))
-            servo.move(pitch + 1, 90 + pos + angle, 180)
-    else:
-        servo.move(pitch + 1, 90 + angle, 180)
+    servo.move(pitch + 1, 90+angle, 180)
 
 
 def main():
@@ -183,6 +179,7 @@ def main():
         # servo.move(pitch + 1, 120)  # face forward (middle of roll)
         # print("servo pos: {}".format(servo.get_position(pitch + 1)))
         angle = 0
+        print("servo pos: {}".format(servo.get_position(yaw + 1, 180)))
         while True:
             for i in range(90, 180, 10):
                 servo.move(yaw + 1, i, 180)

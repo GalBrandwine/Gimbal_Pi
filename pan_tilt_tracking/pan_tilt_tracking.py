@@ -59,6 +59,7 @@ def obj_center(args, objX, objY, centerX, centerY):
 
         # Resize image
         frame = cv2.resize(frame, dim, interpolation=cv2.INTER_AREA)
+        
         # Overcome mirror effect
         frame = cv2.flip(frame, 1)
 
@@ -67,16 +68,19 @@ def obj_center(args, objX, objY, centerX, centerY):
         (H, W) = frame.shape[:2]
         centerX.value = W // 2
         centerY.value = H // 2
-
+        cv2.circle(frame,(centerX.value,centerY.value), 5, (0,0,255), -1)
+        
         # find the object's location
         objectLoc = obj.update(frame, (centerX.value, centerY.value))
         ((objX.value, objY.value), rect) = objectLoc
+        cv2.circle(frame,(objX.value, objY.value), 5, (0,255,0), -1)
 
         # extract the bounding box and draw it
         if rect is not None:
             (x, y, w, h) = rect
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0),
                           2)
+            #cv2.circle(frame,(int((x + w)//2), int((y + h)//2)), 10, (0,255,255), 1)
 
         # display the frame to the screen
         cv2.imshow("Pan-Tilt Face Tracking", frame)
@@ -95,7 +99,7 @@ def pid_process(output, p, i, d, objCoord, centerCoord):
     while True:
         # calculate the error
         error = centerCoord.value - objCoord.value
-
+        print(centerCoord.value,objCoord.value,error)
         # update the value
         output.value = p.update(error)
 
@@ -109,7 +113,11 @@ def go(pan, tlt):
     # signal trap to handle keyboard interrupt
     signal.signal(signal.SIGINT, signal_handler)
 
-
+    # Init
+    #PanTilt.tilt(90)
+    #PanTilt.pan(90)
+    #time.sleep(1)
+    
     # loop indefinitely
     while True:
         # the pan and tilt angles are reversed

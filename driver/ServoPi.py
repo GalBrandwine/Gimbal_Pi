@@ -66,7 +66,7 @@ class Servo(object):
         set the position of the servo
         """
         if channel < 1 or channel > 16:
-            raise ValueError('move: channel out of range')
+            raise ValueError('for channel: {} move: channel out of range'.format(channel))
 
         if steps < 0 or steps > 4095:
             raise ValueError('move: steps out of range')
@@ -87,7 +87,7 @@ class Servo(object):
             else:
                 self.__pwm.set_pwm(channel, 0, pwm_value)
         else:
-            raise ValueError('move: channel out of range')
+            raise ValueError('position: out of range'.format(position))
 
     def get_position(self, channel, steps=250):
         """
